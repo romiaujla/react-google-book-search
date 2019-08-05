@@ -14,11 +14,16 @@ export default class GoogleBookSearchApp extends Component {
         this.state = {
             printFilters: [
                 {'all' : 'All'},
-                {'some' : 'Some'},
+                {'books' : 'Books'},
+                {'magazines' : 'Magazines'}
             ],
             bookFilters: [
                 {'no-filters': 'No Filters'},
-                {'few-filters': 'Few Filters'}
+                {'partial': 'Partial Book'},
+                {'full': 'Full Book'},
+                {'free-ebooks': 'Free E-books'},
+                {'paid-ebooks': 'Paid E-books'},
+                {'ebooks': 'E-books'}
             ]
         };
     }
