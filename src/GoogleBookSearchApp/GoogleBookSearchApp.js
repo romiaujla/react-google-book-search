@@ -12,7 +12,14 @@ export default class GoogleBookSearchApp extends Component {
     constructor (props){
         super(props);
         this.state = {
-
+            printFilters: [
+                {'all' : 'All'},
+                {'some' : 'Some'},
+            ],
+            bookFilters: [
+                {'no-filters': 'No Filters'},
+                {'few-filters': 'Few Filters'}
+            ]
         };
     }
 
@@ -20,7 +27,10 @@ export default class GoogleBookSearchApp extends Component {
         return (
             <div className='google_book_search_app'>
                 <Header />
-                <SearchForm />
+                <SearchForm 
+                    printFilters={this.state.printFilters}
+                    bookFilters={this.state.bookFilters}
+                />
             </div>
         );
     }

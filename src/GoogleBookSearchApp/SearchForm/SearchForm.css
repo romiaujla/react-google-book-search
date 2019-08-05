@@ -28,21 +28,3 @@
     color: white;
     transition: background .2s ease, color 0.2s ease;
 }
-
-
-/* Filter Styling */
-.SearchFilters{
-    background: #e0e0e0;
-    border-bottom: 2px solid lightgray;
-}
-.inline-div{
-    display: inline-block;
-    padding: 10px 10px;
-}
-
-.inline-div select{
-    margin-left: 10px;
-}
-.inline-div select:hover{
-    cursor: pointer;
-}
