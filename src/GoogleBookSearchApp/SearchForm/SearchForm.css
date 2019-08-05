@@ -1,0 +1,48 @@
+/* Search Bar Styling */
+.SearchForm form{
+    text-align: center;
+    margin: auto;
+}
+.SearchBox{
+    padding: 10px;
+    background: #c0c0c0;
+}
+.SearchBox input[type='text']{
+    padding: 3px 5px;
+    margin: 0px 5px;
+    border: none;
+    font-size: 0.9em;
+}
+.SearchBox button{
+    padding: 3px 15px;
+    border: none;
+    font-size: 0.9em;
+    background: white;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.SearchBox button:hover{
+    cursor: pointer;
+    background: gray;
+    color: white;
+    transition: background .2s ease, color 0.2s ease;
+}
+
+
+/* Filter Styling */
+.SearchFilters{
+    background: #e0e0e0;
+    border-bottom: 2px solid lightgray;
+}
+.inline-div{
+    display: inline-block;
+    padding: 10px 10px;
+}
+
+.inline-div select{
+    margin-left: 10px;
+}
+.inline-div select:hover{
+    cursor: pointer;
+}
