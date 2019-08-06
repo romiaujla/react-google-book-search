@@ -3,7 +3,9 @@ import React, {Component} from 'react';
 export default class PrintFilter extends Component {
     
     static defaultProps = {
-        printFilters: []
+        printFilters: [],
+        printType: '',
+        setPrintType: () => {}
     }
 
     render(){
@@ -18,7 +20,12 @@ export default class PrintFilter extends Component {
                 <label htmlFor='print-type-filter'>
                     Print Type: 
                 </label>
-                <select id='print-type-filter' name='print-type-filter'>
+                <select 
+                    id='print-type-filter' 
+                    name='print-type-filter' 
+                    defaultValue={this.props.printType} 
+                    onChange={(e) => this.props.setPrintType(e.target.value)}
+                >
                     {pFilters}
                 </select>
             </div>

@@ -7,17 +7,29 @@ export default class SearchFilters extends Component {
 
     static defaultProps = {
         printFilters: [],
-        bookFilters: []
+        bookFilters: [],
+        printType: '',
+        bookType: '',
+        setPrintType: () => {},
+        setBookType: () => {}
     }
 
     render(){
 
-        const {printFilters, bookFilters} = this.props;
+        const props = this.props;
 
         return (
             <div className='SearchFilters'>
-                <PrintFilter printFilters={printFilters} />
-                <BookFilter bookFilters={bookFilters} />
+                <PrintFilter 
+                    printFilters={props.printFilters} 
+                    printType={props.printType} 
+                    setPrintType={props.setPrintType} 
+                />
+                <BookFilter 
+                    bookFilters={props.bookFilters} 
+                    bookType={props.bookType} 
+                    setBookType={props.setBookType} 
+                />
             </div>
         );
     }

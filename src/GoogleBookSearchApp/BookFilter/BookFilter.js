@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 
 export default class BookFilter extends Component {
     static defaultProps = {
-        bookFilters: []
+        bookFilters: [],
+        bookType: '',
+        setBookType: () => {}
     }
 
     render(){
@@ -17,7 +19,12 @@ export default class BookFilter extends Component {
                 <label htmlFor='book-type-filter'>
                     Book Type: 
                 </label>
-                <select id='book-type-filter' name='book-type-filter'>
+                <select 
+                    id='book-type-filter' 
+                    name='book-type-filter' 
+                    defaultValue={this.props.bookType}
+                    onChange={(e) => this.props.setBookType(e.target.value)}
+                >
                     {bFilters}
                 </select>
             </div>
