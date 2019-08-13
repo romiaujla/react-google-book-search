@@ -2,6 +2,7 @@ import React , {Component} from 'react';
 import './GoogleBookSearchApp.css';
 import Header from './Header/Header';
 import SearchForm from './SearchForm/SearchForm';
+import SearchResults from './SearchResults/SearchResults';
 
 export default class GoogleBookSearchApp extends Component {
     
@@ -158,6 +159,7 @@ export default class GoogleBookSearchApp extends Component {
                 {searchResult}
                 {noResult}
                 {error}
+                <SearchResults />
             </div>
         );
     }

@@ -1,0 +1,21 @@
+.SearchResults{
+    max-width: 990px;
+    margin: auto;
+    padding: 40px;
+}
+
+.SearchResults .book {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px solid black;
+}
+
+.book-info{
+    flex: 2;
+    border-left: 2px solid black;
+}
+
+.SearchResults .book .book-image{
+    width: 300px;
+    border: 1px solid black;
+}
