@@ -1,3 +1,9 @@
 .search-tag{
     padding: 40px 0px 0px 40px;
+    text-align: center;
+}
+
+.searching{
+    text-align: center;
+    padding: 40px;
 }

@@ -88,10 +88,14 @@ export default class GoogleBookSearchApp extends Component {
         e.preventDefault();
         const url = this.getFetchURL();
         const books = [];
+        let searching = true;
+        let noResult = false;
         this.setState({
             searchResult: {
                 books
-            }
+            },
+            searching,
+            noResult
         })
 
         fetch(url)
@@ -105,23 +109,27 @@ export default class GoogleBookSearchApp extends Component {
                 // set state of books to data only when it is a successful search
                 if(data.totalItems > 0){
                     data.items.forEach((book) => {
-                        const noResult = false;
+                        noResult = false;
+                        searching = false;
                         this.setState({
                             totalItems: data.totalItems,
-                            noResult
+                            noResult,
+                            searching
                         })
                         this.setSearchResults(book);
                     })
                 }else{
                     const books = [];
                     const totalItems = null;
-                    const noResult = true;
+                    noResult = true;
+                    searching = false;
                     this.setState({
                         searchResult: {
                             books
                         },
                         totalItems,
-                        noResult
+                        noResult,
+                        searching
                     });
                 }
                 
@@ -150,6 +158,10 @@ export default class GoogleBookSearchApp extends Component {
             ? <div className='search-tag Error'>{this.state.err}</div>
             : '';
 
+        const searching = this.state.searching
+            ? <div className='searching'>Searching for Books...</div>
+            : '';
+
         return (
             <div className='google_book_search_app'>
                 <Header />
@@ -163,6 +175,7 @@ export default class GoogleBookSearchApp extends Component {
                     setBookType={(val) => this.setBookType(val)}
                     handleSubmit={(e) => this.handleSubmit(e)}
                 />
+                {searching}
                 {searchResult}
                 {noResult}
                 {error}
