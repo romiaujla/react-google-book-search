@@ -4,26 +4,59 @@ import './SearchResults.css';
 export default class SearchResults extends Component {
 
     static defaultProps = {
-        apiResponse: ''
+        books: []
     }
+
+
 
     render(){
 
-        return (
-            <div className='SearchResults'>
-                <div className='book'>
-                    <div className='book-image'>
-                        <img 
-                            src='book.url'
-                            alt='book-name cover'
-                        />
+        const books = this.props.books.map((book) => {
+
+            const {volumeInfo} = book;
+
+            return (
+                <li 
+                    className='book'
+                    key={book.id}
+                >
+                    <div className='book-img'>
+                        <img src={ (volumeInfo.hasOwnProperty('imageLinks')) ? volumeInfo.imageLinks.smallThumbnail : 'https://islandpress.org/sites/default/files/400px%20x%20600px-r01BookNotPictured.jpg'} />
                     </div>
                     <div className='book-info'>
-                        <h3 className='book-title'>
-                            Book-Name
-                        </h3>
+                        {volumeInfo.hasOwnProperty('canonicalVolumeLink') 
+                            ? (
+                                <a 
+                                    href={volumeInfo.canonicalVolumeLink}
+                                    target='_blank'
+                                >
+                                    <h3>{volumeInfo.title}</h3>
+                                </a>
+                            )
+                            : (
+                                <h3>{volumeInfo.title}</h3>
+                            )
+                        }
+                        {volumeInfo.hasOwnProperty('subtitle') && (
+                            <h4>{volumeInfo.subtitle}</h4>
+                        )}
+                        {volumeInfo.hasOwnProperty('description') && (
+                            <p className='book-description'>
+                                <h4>Description</h4>
+                                {volumeInfo.description}
+                            </p>
+                        )}
                     </div>
-                </div>
+                    
+                </li>
+            )
+        })
+
+        return (
+            <div className='SearchResults'>
+                <ul className='books-found'>
+                    {books}
+                </ul>
             </div>
         );
     }

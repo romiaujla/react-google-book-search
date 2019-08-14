@@ -7,15 +7,41 @@
 .SearchResults .book {
     display: flex;
     flex-wrap: wrap;
-    border-bottom: 2px solid black;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.08);
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
 }
 
 .book-info{
     flex: 2;
-    border-left: 2px solid black;
+    align-self: flex-start;
 }
 
-.SearchResults .book .book-image{
-    width: 300px;
-    border: 1px solid black;
+.SearchResults .book-img{
+    min-width: 175px;
 }
+
+.SearchResults .book-img img{
+    max-height: 200px;
+}
+
+.SearchResults .book h3{
+    font-size: 1em;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.SearchResults .book h4{
+    font-size: 0.8em;
+    margin-top: 2px;
+    font-weight: 400;
+}
+
+.SearchResults .book .book-description{
+    font-size: 0.8em;
+    line-height: 1.8em;
+    padding: 10px 0px;
+}
+

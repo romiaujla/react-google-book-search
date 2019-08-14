@@ -87,6 +87,12 @@ export default class GoogleBookSearchApp extends Component {
 
         e.preventDefault();
         const url = this.getFetchURL();
+        const books = [];
+        this.setState({
+            searchResult: {
+                books
+            }
+        })
 
         fetch(url)
             .then((response) => {
@@ -130,17 +136,18 @@ export default class GoogleBookSearchApp extends Component {
 
     render(){
 
-
         const searchResult = this.state.totalItems
-            ? <div className=''></div>
+            ? <SearchResults 
+                books={this.state.searchResult.books} 
+                />
             : '';
 
         const noResult = this.state.noResult
-            ? <div className=''>No Result Found</div>
+            ? <div className='search-tag'>No Books Found</div>
             : '';
 
         const error = this.state.err
-            ? <div className='Error'>{this.state.err}</div>
+            ? <div className='search-tag Error'>{this.state.err}</div>
             : '';
 
         return (
@@ -159,7 +166,6 @@ export default class GoogleBookSearchApp extends Component {
                 {searchResult}
                 {noResult}
                 {error}
-                <SearchResults />
             </div>
         );
     }
